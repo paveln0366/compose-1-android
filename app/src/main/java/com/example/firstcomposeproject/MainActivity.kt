@@ -18,14 +18,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            FirstComposeProjectTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
+                    UserInfo("Pavel", 30)
                 }
-            }
         }
     }
 }
@@ -38,10 +37,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
-@Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    FirstComposeProjectTheme {
-        Greeting("Android")
-    }
+fun UserInfo(name: String, age: Int) {
+    Text(
+        text = "Hello $name! You are $age years old"
+    )
 }
